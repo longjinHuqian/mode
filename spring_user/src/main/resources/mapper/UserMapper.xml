@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.spring.mapper.UserMapper">
+    <!--查询用户信息-->
+    <select id="findUserAll" resultType="User">
+        select * from user
+    </select>
+
+    <!--添加用户信息-->
+    <insert id="addUser" parameterType="User">
+        insert into user value(#{name},#{password},#{address})
+    </insert>
+
+    <!--修改用户信息-->
+    <update id="modifyUser" parameterType="User">
+        update user set name=#{name},password=#{password},address=#{address} where id = #{id}
+    </update>
+
+    <!--删除用户信息-->
+    <delete id="deleteUser">
+        delete from user where id=#{id}
+    </delete>
+</mapper>
